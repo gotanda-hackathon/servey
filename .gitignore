@@ -31,3 +31,4 @@ Gemfile.lock
 file/*
 /.ruby-version
 /**/.DS_Store
+th-pg-config=
