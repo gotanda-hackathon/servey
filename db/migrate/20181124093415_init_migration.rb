@@ -55,13 +55,13 @@ class InitMigration < ActiveRecord::Migration[5.2]
       t.bigint "question_detail_id", null: false
       t.bigint "next_question_detail_id"
       t.string "content", null: false
-      t.boolean "boolean"
+      t.boolean "finish", default: false
       t.timestamps
     end
     create_table "question_prices", force: :cascade do |t|
       t.bigint "question_id", null: false
       t.bigint "question_detail_id"
-      t.bigint "section_id"
+      t.bigint "question_section_id"
       t.integer "price", null: false
       t.integer "type", null: false
       t.timestamps
