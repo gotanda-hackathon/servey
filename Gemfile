@@ -35,6 +35,17 @@ gem 'jbuilder', '~> 2.5'
 # gem 'capistrano-rails', group: :development
 
 gem 'jp_prefecture'
+gem 'unicorn'
+gem 'kaminari'
+gem 'slim-rails'
+gem 'devise'
+gem 'nested_form'
+gem "obfuscatable"
+gem 'breadcrumbs_on_rails'
+gem "font-awesome-rails"
+gem 'ransack'
+gem 'draper'
+gem 'enum_help'
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false
