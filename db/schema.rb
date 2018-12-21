@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_11_24_093415) do
+ActiveRecord::Schema.define(version: 2018_12_09_104634) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -74,6 +74,7 @@ ActiveRecord::Schema.define(version: 2018_11_24_093415) do
     t.string "encrypted_password", default: "", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["email"], name: "index_customers_on_email", unique: true
   end
 
   create_table "question_categories", force: :cascade do |t|
@@ -87,7 +88,7 @@ ActiveRecord::Schema.define(version: 2018_11_24_093415) do
     t.bigint "question_detail_id", null: false
     t.bigint "next_question_detail_id"
     t.string "content", null: false
-    t.boolean "boolean"
+    t.boolean "finish", default: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -105,7 +106,7 @@ ActiveRecord::Schema.define(version: 2018_11_24_093415) do
   create_table "question_prices", force: :cascade do |t|
     t.bigint "question_id", null: false
     t.bigint "question_detail_id"
-    t.bigint "section_id"
+    t.bigint "question_section_id"
     t.integer "price", null: false
     t.integer "type", null: false
     t.datetime "created_at", null: false
