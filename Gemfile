@@ -39,6 +39,7 @@ gem 'unicorn'
 gem 'kaminari'
 gem 'slim-rails'
 gem 'devise'
+gem 'devise-i18n-views'
 gem 'nested_form'
 gem "obfuscatable"
 gem 'breadcrumbs_on_rails'

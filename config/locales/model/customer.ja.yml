@@ -1,0 +1,25 @@
+ja:
+  enums:
+    customer:
+      gender:
+        male: 男性
+        femail: 女性
+        not_set: なし
+        other: その他
+  activerecord:
+    models:
+      customer: ユーザー
+    attributes:
+      customer:
+        id: ユーザーID
+        name: 名前
+        business_category_id: 職業
+        business_catgegory_detail_id: 職種
+        prefecture_code: 都道府県
+        gender: 性別
+        age: 年齢
+        birthday: 誕生日
+        email: Eメール
+        encrypted_password: パスワード
+        password_confirmation: 確認用パスワード
+        remember_me: 次回から自動的にログイン

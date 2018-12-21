@@ -2,10 +2,20 @@ doctype html
 html
   head
     title DeviseRails5
-      == csrf_meta_tags
-      == stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
-      == javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
+      = csrf_meta_tags
+      = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
+      = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
   body
-    p.notice
-    p.alert
+    header
+      nav
+        - if customer_signed_in?
+          strong
+            = link_to current_user.username, pages_show_path
+          = link_to t('devise.registrations.edit.edit_registration'), edit_customer_registration_path
+          = link_to t('devise.sessions.destroy.sign_out'), destroy_customer_session_path, method: :delete
+        - else
+          = link_to t('devise.registrations.new.sign_up'), new_customer_registration_path
+          = link_to t('devise.sessions.new.sign_in'), new_customer_session_path
+    p.notice = notice
+    p.alert = alert
     = yield
