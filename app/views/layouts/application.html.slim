@@ -1,16 +1,17 @@
 doctype html
 html
   head
-    title DeviseRails5
-      = csrf_meta_tags
-      = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
-      = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
+    title 
+      = @title || "servey"
+    == csrf_meta_tags
+    == stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
+    == javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
   body
     header
       nav
         - if customer_signed_in?
           strong
-            = link_to current_user.username, pages_show_path
+            = link_to current_customer.name, pages_show_path
           = link_to t('devise.registrations.edit.edit_registration'), edit_customer_registration_path
           = link_to t('devise.sessions.destroy.sign_out'), destroy_customer_session_path, method: :delete
         - else
