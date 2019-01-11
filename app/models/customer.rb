@@ -3,8 +3,8 @@ class Customer < ApplicationRecord
   # :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
-  belongs_to :business_category
-  belongs_to :business_category_detail
+  belongs_to :business_category, optional: true
+  belongs_to :business_category_detail, optional: true
   has_many :answers
 
   include JpPrefecture
