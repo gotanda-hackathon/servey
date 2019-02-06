@@ -1,8 +1,8 @@
 class Admin::PageController < Admin::BaseController
 
 	def index
-		render layout: "admin"
 	end
+
 	def login
 	end
 
