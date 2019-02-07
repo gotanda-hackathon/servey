@@ -1,0 +1,81 @@
+.container-fluid
+  .row
+    .col-lg-4.col-md-5
+      .card.card-user
+        .image
+          img alt="..." src="/img/background.jpg" /
+        .content style='min-height: 0;'
+          .author
+            img.avatar.border-white alt="..." src="/img/test_icon.png" /
+            h4.title
+              | 坂口 拓也
+              br
+              p class="description text-center"
+                | アスニカ株式会社
+        hr/
+        .text-center
+          .row
+            .col-md-3.col-md-offset-1 style='width: 40%;'
+              h5
+                | 3
+                br/
+                small アンケート数
+            .col-md-3 style='width: 40%;'
+              h5
+                | 2人
+                br/
+                small メンバー
+      .card
+        .header
+          h4.title 組織のメンバー
+        .content
+          ul.list-unstyled.team-members
+            li
+              .row
+                .col-xs-3
+                  .avatar
+                    img.img-circle.img-no-padding.img-responsive alt=("Circle Image") src="/img/member.png" /
+                .col-xs-6
+                  | 鵜殿 若菜
+                  br/
+                  span.text-muted
+                    small Offline
+    .col-lg-8.col-md-7
+      .card
+        .header
+          h4.title プロフィール編集
+        .content
+          form
+            .row
+              .col-md-5
+                .form-group
+                  label チーム
+                  input.form-control.border-input disabled="disabled" placeholder="Company" type="text" value=("アスニカ株式会社") /
+              .col-md-3
+                .form-group
+                  label 氏名
+                  input.form-control.border-input placeholder="Username" type="text" value="坂口 拓也" /
+              .col-md-4
+                .form-group
+                  label for="exampleInputEmail1"  メールアドレス
+                  input.form-control.border-input placeholder="Email" type="email" value="sakaguchi@asnica.co.jp" /
+            .row
+              .col-md-4
+                .form-group
+                  label 郵便番号
+                  input.form-control.border-input placeholder=("1234567") type="number" value="1410021"  /
+              .col-md-4
+                .form-group
+                  label 都道府県
+                  input.form-control.border-input placeholder="Country" type="text" value="東京都" /
+              .col-md-4
+                .form-group
+                  label 市区町村
+                  input.form-control.border-input placeholder="City" type="text" value="品川区" /
+            .row
+              .col-md-12
+                .form-group
+                  label 丁目・番地・建物名
+                  input.form-control.border-input placeholder=("Home Address") type="text" value="西五反田8-8-15 カーニープレイス五反田6F" /
+              button.btn.btn-info.btn-fill.btn-wd style='margin-left: 42%;margin-bottom: 15px;' type="submit"  更新
+            .clearfix

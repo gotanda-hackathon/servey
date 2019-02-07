@@ -32,3 +32,13 @@ file/*
 /.ruby-version
 /**/.DS_Store
 th-pg-config=
+.generators
+.rakeTasks
+.idea/misc.xml
+.idea/modules.xml
+.idea/servey.iml
+.idea/vcs.xml
+.idea/runConfigurations/Development__servey.xml
+.idea/runConfigurations/Production__servey.xml
+.idea/runConfigurations/spec__servey.xml
+.idea/runConfigurations/test__servey.xml

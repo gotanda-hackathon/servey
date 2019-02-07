@@ -3,10 +3,10 @@ html
   head
     meta content=("text/html; charset=UTF-8") http-equiv="Content-Type" /
     title 管理画面 | servey
-    = stylesheet_link_tag "admin/prism", media: 'all'
     = stylesheet_link_tag "admin/style", media: 'all'
-    /link href="../../dist/css/style.css" rel="stylesheet" /
-    /link href="../../assets/extra-libs/prism/prism.css" rel="stylesheet" /
+    = stylesheet_link_tag "admin/prism", media: 'all'
+    link href="../../dist/css/style.css" rel="stylesheet" /
+    link href="../../assets/extra-libs/prism/prism.css" rel="stylesheet" /
   body#top
     #main-wrapper.main-wrapper
       /! ==============================================================

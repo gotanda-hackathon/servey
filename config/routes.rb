@@ -8,4 +8,15 @@ Rails.application.routes.draw do
       resources sym
     end
   end
+
+
+
+  namespace :company do
+    root 'account#index'
+    match 'login', controller: :page, action: :login, via: [:get, :post]
+    get 'logout', controller: :page, action: :logout
+    [:surveys].each do |sym|
+      resources sym
+    end
+  end
 end
