@@ -32,12 +32,12 @@ html lang="en"
               a href="dashboard.html"
                 i.ti-panel
                 p ダッシュボード
-            li.active
+            li[class="#{ 'active' if controller_name == 'users'}"]
               = link_to company_root_path do
                 i.ti-user
                 p マイページ
-            li
-              a href="table.html"
+            li[class="#{ 'active' if controller_name == 'questions'}"]
+              = link_to company_questions_path do
                 i.ti-view-list-alt
                 p アンケート管理
             li.active-pro

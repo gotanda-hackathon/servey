@@ -12,10 +12,10 @@ Rails.application.routes.draw do
 
 
   namespace :company do
-    root 'account#index'
+    root 'users#index'
     match 'login', controller: :page, action: :login, via: [:get, :post]
     get 'logout', controller: :page, action: :logout
-    [:surveys].each do |sym|
+    [:questions].each do |sym|
       resources sym
     end
   end

@@ -5,4 +5,6 @@ class Question < ApplicationRecord
   has_many :question_sections
   has_many :question_price
   has_many :answers
+
+  accepts_nested_attributes_for :question_sections, allow_destroy: true
 end
