@@ -1,34 +1,4 @@
 .card
   .header
-    h4.title アンケート新規作成
-  .content
-    = nested_form_for [:company, @question] do |f|
-      .row
-        .col-md-4
-          .form-group
-            label タイトル
-            = f.text_field :title, class: 'form-control border-input'
-            /input.form-control.border-input placeholder="Username" type="text" value="坂口 拓也" /
-        .col-md-4
-          .form-group
-            label for="exampleInputEmail1" 応募人数
-            br
-            = f.select :min_required_customer_qty, (1..100).to_a.map{|idx| ["#{idx}人", idx]}, {include_blank: false}, {class: 'form-control border-input', style: "width: 30%;display: inline-block;"}
-            |  〜
-            = f.select :min_required_customer_qty, (1..100).to_a.map{|idx| ["#{idx}人", idx]}, {include_blank: false}, {class: 'form-control border-input', style: "width: 30%;display: inline-block;"}
-        .col-md-4
-          .form-group
-            label for="exampleInputEmail1" 期間
-            br
-            = f.text_field :start_date, class: 'form-control border-input', style: "width: 30%;display: inline-block;"
-            |  〜
-            = f.text_field :end_date, class: 'form-control border-input', style: "width: 30%;display: inline-block;"
-      .row
-        .col-md-12
-          .form-group
-            label 説明
-            = f.text_area :explanation, class: 'form-control border-input'
-
-      = f.fields_for :question_details do |f|
-
-      button.btn.btn-info.btn-fill.btn-wd style='margin-left: 42%;margin-bottom: 15px;' type="submit"  作成
+    h3 アンケート新規作成
+  = render partial: 'company/questions/form'

@@ -10,7 +10,10 @@
 // Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
 // about supported directives.
 //
+//= require jquery
+//= require company/jquery-ui.min.js
+//= require company/jquery.ui.datepicker-ja.js
+//= require jquery_nested_form
 //= require rails-ujs
 //= require activestorage
 //= require turbolinks
-//= require_tree .

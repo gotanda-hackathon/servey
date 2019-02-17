@@ -1,0 +1,97 @@
+.content
+  h4 アンケート基本情報
+  = nested_form_for [:company, @question] do |f|
+    .section_box
+      .row
+        .col-md-4
+          .form-group
+            label タイトル
+            = f.text_field :title, class: 'form-control border-input'
+        .col-md-4
+          .form-group
+            label for="exampleInputEmail1" 応募人数
+            br
+            = f.select :min_required_customer_qty, (1..100).to_a.map{ |idx| ["#{idx}人", idx] }, {include_blank: false}, {class: 'form-control border-input', style: "width: 30%;display: inline-block;"}
+            |  〜
+            = f.select :max_required_customer_qty, (1..100).to_a.map{ |idx| ["#{idx}人", idx] }, {include_blank: false}, {class: 'form-control border-input', style: "width: 30%;display: inline-block;"}
+        .col-md-4
+          .form-group
+            label for="exampleInputEmail1" 期間
+            br
+            = f.text_field :start_date, class: 'form-control border-input', style: "width: 30%;display: inline-block;", data: { datepicker: true }
+            |  〜
+            = f.text_field :end_date, class: 'form-control border-input', style: "width: 30%;display: inline-block;", data: { datepicker: true }
+      .row
+        .col-md-12
+          .form-group
+            label 説明
+            = f.text_area :explanation, class: 'form-control border-input', style: "width: 50%;"
+
+    h4 セクション設定
+    #section_box_field
+      = f.fields_for :question_sections do |question_section|
+        .section_box
+          .row
+            .col-md-4
+              .form-group
+                label タイトル
+                = question_section.text_field :name, class: 'form-control border-input'
+            .col-md-8
+              .form-group
+                label 説明
+                = question_section.text_area :explanation, class: 'form-control border-input', style: "width: 90%;"
+
+          h5 設問設定
+          = question_section.fields_for :question_details do |question_detail|
+            .detail_box
+              .row
+                .col-md-4
+                  .form-group
+                    label タイトル
+                    = question_detail.text_field :title, class: 'form-control border-input'
+                .col-md-8
+                  .form-group
+                    label 説明
+                    = question_detail.text_area :explanation, class: 'form-control border-input', style: "width: 90%;"
+              .row
+                .col-md-4
+                  .form-group
+                    label 設問タイプ
+                    = question_detail.select(:type, QuestionDetail.types.keys.map { |k| [I18n.t("enums.question_detail.type.#{k}"), k] }, \
+                        {}, {class: 'form-control border-input'})
+                .col-md-8 style='margin-top: 3%;'
+                  = question_detail.check_box :required, id: "required"
+                  label for="required" この設問を回答必須にする
+              label 選択肢(※選択式であれば必須)
+              div id="question_detail_choice_fields_#{question_detail.options[:child_index]}"
+                = question_detail.fields_for :question_detail_choices do |question_detail_choice|
+                  .row
+                    .col-md-7
+                      .form-group
+                        = question_detail_choice.text_field :content, class: 'form-control border-input'
+              = question_detail.link_to_add "選択肢追加", :question_detail_choices, data: {target: "#question_detail_choice_fields_#{question_detail.options[:child_index]}"}, class: "btn btn-default"
+          = question_section.link_to_add "設問追加", :question_details, class: "btn btn-default"
+    = f.link_to_add "セクション追加", :question_sections, data: {target: "#section_box_field"}, class: "btn btn-default"
+    = f.submit '作成', class: 'btn btn-info btn-fill btn-wd', style: 'margin-left: 42%;margin-bottom: 15px;'
+
+
+css:
+  .section_box {
+    padding: 0.5em 1em;
+    margin: 2em 0;
+    font-weight: bold;
+    background: #FFF;
+    border: solid 3px #CCCCCC;
+    border-radius: 10px;
+  }
+
+  .icons {
+    display: none;
+  }
+
+  .detail_box {
+    padding: 0.5em 1em;
+    margin: 2em 0;
+    background: #FFFFDD;
+    border: dashed 2px #FFAD90;
+  }

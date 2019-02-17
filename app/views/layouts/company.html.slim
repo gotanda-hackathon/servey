@@ -14,12 +14,31 @@ html lang="en"
     = stylesheet_link_tag 'company/css/animate.min'
     = stylesheet_link_tag 'company/css/demo'
     = stylesheet_link_tag 'company/css/paper-dashboard.css'
+    = javascript_include_tag "application.js"
 
 
     /! Fonts and icons
     link href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" rel="stylesheet" /
     link href="https://fonts.googleapis.com/css?family=Muli:400,300" rel="stylesheet" type="text/css" /
     = stylesheet_link_tag 'company/css/themify-icons'
+
+    javascript:
+      var datepickerOpt = {
+        beforeShowDay: function (date) {
+          date = date.getFullYear() + '-' + ( "0" + ( date.getMonth() + 1 ) ).slice(-2) + '-' + ( "0" + date.getDate() ).slice(-2)
+          if ($.inArray(date) > -1) {
+            return [true, "ui-datepicker-nationalHoliday", "祝日"];
+          } else {
+            return [true]
+          }
+        }
+      }
+
+      $(function () {
+        $('[data-datepicker]').datepicker(datepickerOpt);
+        $('.datepicker').datepicker(datepickerOpt);
+      });
+
   body
     .wrapper
       .sidebar data-active-color="danger" data-background-color="white"
@@ -75,17 +94,15 @@ html lang="en"
             .copyright.pull-right
               | ©
               javascript:
-                | document.write(new Date().getFullYear())
+                document.write(new Date().getFullYear())
               | , made with
               i.fa.fa-heart.heart
               | by
               |   Starx × Asnica
   /! Core JS Files
-  = javascript_include_tag "company/jquery.min.js"
   = javascript_include_tag "company/bootstrap.min.js"
   = javascript_include_tag "company/bootstrap-checkbox-radio.js"
   = javascript_include_tag "company/chartist.min.js"
-  = javascript_include_tag "company/jquery.min.js"
   = javascript_include_tag "company/bootstrap-notify.js"
   script src="https://maps.googleapis.com/maps/api/js" type="text/javascript"
   = javascript_include_tag "company/paper-dashboard.js"
