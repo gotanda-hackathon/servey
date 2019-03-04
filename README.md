@@ -22,3 +22,12 @@ Things you may want to cover:
 * Deployment instructions
 
 * ...
+
+###GoogleHome接続
+https://41e2551d.ngrok.io/webhook(ngrokを立ち上げるたびに変わる)
+を
+https://console.dialogflow.com/api-client/#/agent/3f9c924a-e7cb-4120-98e8-e30d47f5ce1a/fulfillment
+に記載
+
+
+

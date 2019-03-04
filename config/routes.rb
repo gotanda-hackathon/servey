@@ -19,4 +19,6 @@ Rails.application.routes.draw do
       resources sym
     end
   end
+
+  post '/webhook', controller: 'api/message', action: :webhook
 end

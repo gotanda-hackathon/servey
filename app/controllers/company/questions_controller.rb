@@ -1,6 +1,7 @@
 class Company::QuestionsController < Company::BaseController
 
 	def index
+		@questions = Question.all
 	end
 
 	def new
@@ -21,6 +22,7 @@ class Company::QuestionsController < Company::BaseController
 	end
 
 	def edit
+		@question = Question.find_by(id: params[:id])
 	end
 
 	def update
