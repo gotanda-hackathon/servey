@@ -4,7 +4,7 @@ Rails.application.routes.draw do
     match 'login', controller: :page, action: :login, via: [:get, :post]
     get 'logout', controller: :page, action: :logout
 
-    [:admin_users].each do |sym|
+    [:admin_users,:customers].each do |sym|
       resources sym
     end
   end

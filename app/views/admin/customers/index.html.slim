@@ -1,0 +1,46 @@
+/! ==============================================================
+/! Title and breadcrumb
+/! ==============================================================
+.page-titles
+  .d-flex.align-items-center
+    h5.font-medium.m-b-0 Customers
+    .custom-breadcrumb.ml-auto
+      a.breadcrumb href="#!"  Home
+      a.breadcrumb href="#!"  Ticket List
+/! ==============================================================
+/! Container fluid scss in scafholding.scss
+/! ==============================================================
+.container-fluid
+  .row
+    .col.s12
+      .card
+        .card-content
+          /! Column
+          .table-responsive
+            table#zero_config.table.table-striped.table-bordered
+              thead
+                tr
+                  th ID
+                  th 氏名
+                  th メールアドレス
+                  th ログインコード
+                  th ポイント
+                  th 操作
+              tbody
+                - @customers.each do |customer|
+                  tr
+                    td
+                      a.link href="ticket-detail.html" = customer.id
+                    td
+                      a.font-medium.link href="ticket-detail.html" = customer.name
+                    td = customer.email
+                    td = customer.login_code
+                    td = customer.point
+                    td = link_to '詳細', admin_customer_path(customer)
+/! ==============================================================
+/! Container fluid scss in scafholding.scss
+/! ==============================================================
+/footer.center-align.m-b-30
+/  | All Rights Reserved by Materialart. Designed and Developed by
+/  = succeed "." do
+/    a href="https://wrappixel.com"  WrapPixel

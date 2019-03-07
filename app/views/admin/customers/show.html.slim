@@ -1,0 +1,32 @@
+.page-titles
+  .d-flex.align-items-center
+    h5.font-medium.m-b-0 詳細
+    .custom-breadcrumb.ml-auto
+      a.breadcrumb href="#!"  Home
+      a.breadcrumb href="#!"  一覧
+      a.breadcrumb href="#!"  詳細
+/! ==============================================================
+/! Container fluid scss in scafholding.scss
+/! ==============================================================
+.container-fluid
+  .row
+    .col.s12
+      .card
+        .card-content
+          form.m-t-30
+            .row
+              .input-field.col.s6
+                input#sub_text placeholder=("globe type chair for rest") type="text" value=@customer.name  /
+                label for="sub_text"  Sub text
+              .input-field.col.s6
+                input#sub_text1 placeholder=("globe type chair for rest") type="text" value=@customer.email  /
+                label Email
+              .input-field.col.s6
+                input#sub_text placeholder=("globe type chair for rest") type="text" value=@customer.login_code  /
+                label for="sub_text"  Sub text
+              .input-field.col.s6
+                input#sub_text1 placeholder=("globe type chair for rest") type="password" value=@customer.encrypted_password  /
+                label Email
+              .input-field.col.s6
+                input#sub_text1 placeholder=("globe type chair for rest") type="text" value="#{@customer.point} pt"  /
+                label Email

@@ -10,11 +10,11 @@ class QuestionDetail < ApplicationRecord
 
   enum type: {
     single_choice: 1,
-    multiple_choice: 2,
-    long_description: 3,
+    # multiple_choice: 2,
+    # long_description: 3,
     short_description: 4,
-    date: 5,
-    date_time: 6
+    # date: 5,
+    # date_time: 6
   }
 
   class << self

@@ -1,4 +1,4 @@
 class Company < ApplicationRecord
-  has_many :users
+  has_many :customers
   has_one :business_category
 end

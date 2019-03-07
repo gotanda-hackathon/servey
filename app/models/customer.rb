@@ -6,10 +6,10 @@ class Customer < ApplicationRecord
   include JpPrefecture
   jp_prefecture :prefecture_code
 
-  enum :gender {
-    male: 1,
-    female: 2,
-    not_set: 0,
-    other: 9
+  enum gender: {
+      male: 1,
+      female: 2,
+      not_set: 0,
+      other: 9
   }
 end
