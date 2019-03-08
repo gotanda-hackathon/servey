@@ -21,4 +21,6 @@ Rails.application.routes.draw do
   end
 
   post '/webhook', controller: 'api/message', action: :webhook
+
+  resources 'alexa_api', only: %i(index)
 end
