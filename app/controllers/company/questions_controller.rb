@@ -26,6 +26,13 @@ class Company::QuestionsController < Company::BaseController
 	end
 
 	def update
+		@question = Question.find_by(id: params[:id])
+		@question.attributes = admin_question_params
+		if @question.save
+			redirect_to company_questions_path
+		else
+			render :new
+		end
 	end
 
 	private
